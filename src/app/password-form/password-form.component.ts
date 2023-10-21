@@ -33,7 +33,7 @@ export class PasswordFormComponent {
       return;
     }
 
-    const letters = /[a-zA-Z]/.test(this.password);
+    const letters = /[a-zA-Zа-яА-Я]/.test(this.password);
     const numbers = /[0-9]/.test(this.password);
     const symbols = /[$-/:-?{-~!"^_@`\[\]]/g.test(this.password);
 
