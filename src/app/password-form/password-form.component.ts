@@ -10,12 +10,11 @@ const DEFAULT_COLOR = 'lightgray';
 export class PasswordFormComponent {
   bars: string[] = [DEFAULT_COLOR, DEFAULT_COLOR, DEFAULT_COLOR];
   password: string = '';
-  message: string = ''
+  message: string = '';
   passwordStrength: number = 0;
 
   onInput(e: any) {
     this.password = e.target.value;
-    console.log(this.password);
     this.checkPassword();
     this.setBarColors();
   }
@@ -50,30 +49,30 @@ export class PasswordFormComponent {
     switch (this.passwordStrength) {
       case 0:
         color = DEFAULT_COLOR;
-        this.message = ''
+        this.message = '';
         break;
       case 1:
         color = 'darkred';
-        this.message = 'Password is too short'
+        this.message = 'Password is too short';
         break;
       case 2:
         color = 'darkred';
-        this.message = 'Password is easy'
+        this.message = 'Easy password';
         break;
       case 3:
         color = 'yellow';
-        this.message = 'Password is medium'
+        this.message = 'Medium password';
         break;
       case 4:
         color = 'green';
-        this.message = 'Password is strong'
+        this.message = 'Strong password';
         break;
       default:
         color = DEFAULT_COLOR;
     }
 
     this.bars = this.bars.map((value, index) => {
-      if (this.passwordStrength === 1) return color
+      if (this.passwordStrength === 1) return color;
       if (index <= this.passwordStrength - 2) return color;
       else return DEFAULT_COLOR;
     });
